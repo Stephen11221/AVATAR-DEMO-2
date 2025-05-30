@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Info Display</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+
+    function openTab(tabName) {
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.add('hidden'));
+      document.getElementById(tabName).classList.remove('hidden');
+
+      document.querySelectorAll('.tab-link').forEach(btn => {
+        btn.classList.remove('text-blue-600', 'border-blue-600');
+        btn.classList.add('text-gray-600');
+      });
+
+      event.target.classList.add('text-blue-600', 'border-b-2', 'border-blue-600');
+      event.target.classList.remove('text-gray-600');
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      openTab('handbags');
+    });
+  </script>
+</head>
+<body class="bg-gray-50 font-sans scroll-smooth">
+
+  <!-- NAVBAR -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <a href="#" class="text-2xl font-bold text-blue-600">MyShop</a>
+        <div class="hidden md:flex space-x-6">
+          <a href="#home" class="text-gray-700 hover:text-blue-600">Home</a>
+          <a href="#about" class="text-gray-700 hover:text-blue-600">About</a>
+          <a href="#shop" class="text-gray-700 hover:text-blue-600">Shop</a>
+          <a href="#contact" class="text-gray-700 hover:text-blue-600">Contact</a>
+        </div>
+        <div class="md:hidden">
+          <button onclick="toggleMenu()" class="text-gray-700 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="hidden md:hidden pb-4">
+        <a href="#home" class="block px-2 py-2 text-gray-700 hover:bg-blue-100 rounded">Home</a>
+        <a href="#about" class="block px-2 py-2 text-gray-700 hover:bg-blue-100 rounded">About</a>
+        <a href="#shop" class="block px-2 py-2 text-gray-700 hover:bg-blue-100 rounded">Shop</a>
+        <a href="#contact" class="block px-2 py-2 text-gray-700 hover:bg-blue-100 rounded">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HOME SECTION -->
+  <section id="home" class="text-center py-20 bg-blue-50">
+    <h1 class="text-4xl font-bold text-blue-700 mb-4">Welcome to MyShop</h1>
+    <p class="text-lg text-gray-700 mb-6">Your destination for stylish handbags, socks & more!</p>
+    <a href="#shop" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">Browse Products</a>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="py-20 bg-white text-center px-6">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">About Us</h2>
+      <p class="text-gray-600 text-lg">
+        At MyShop, we provide quality fashion accessories that combine beauty, comfort, and affordability. We take pride in excellent customer service and a smooth shopping experience. Contact us anytime for quick help and product inquiries!
+      </p>
+    </div>
+  </section>
+
+  <!-- SHOP SECTION HEADER -->
+  <section id="shop" class="text-center mt-10 mb-6 px-4">
+    <h2 class="text-3xl font-bold text-gray-800">Our Products</h2>
+    <p class="text-gray-500">Choose a category to view available products</p>
+  </section>
+
+  <!-- TABS -->
+  <div class="flex justify-center gap-6 mb-6 px-4 border-b border-gray-300">
+    <button onclick="openTab('handbags')" class="tab-link text-blue-600 font-medium py-2 border-b-2 border-blue-600">Handbags</button>
+    <button onclick="openTab('socks')" class="tab-link text-gray-600 hover:text-blue-600 font-medium py-2">Socks</button>
+    <button onclick="openTab('others')" class="tab-link text-gray-600 hover:text-blue-600 font-medium py-2">Others</button>
+  </div>
+
+  <!-- PRODUCTS -->
+  <div class="max-w-6xl mx-auto px-4">
+    <!-- Handbags -->
+    <div id="handbags" class="tab-content grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="bg-white p-4 rounded shadow">
+        <img src="img/download (5).jpeg" alt="Handbag" class="w-full rounded" />
+        <h2 class="text-lg font-semibold mt-2">Leather Handbag</h2>
+        <p class="text-gray-600">Elegant leather handbag, available in various colors.</p>
+        <div class="flex space-x-2 mt-4">
+          <a href="tel:+254 769747803" class="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600">Call</a>
+          <a href="https://wa.me/0769747803" target="_blank" class="bg-green-700 text-white px-4 py-1 rounded hover:bg-green-800">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Socks -->
+    <div id="socks" class="tab-content hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="bg-white p-4 rounded shadow">
+        <img src="img/nike_racing_ankle_socks4.jpg" alt="Socks" class="w-full rounded" />
+        <h2 class="text-lg font-semibold mt-2">Ankle Socks</h2>
+        <p class="text-gray-600">Comfortable cotton ankle socks (Pack of 3).</p>
+        <div class="flex space-x-2 mt-4">
+          <a href="tel:+254 769747803" class="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600">Call</a>
+          <a href="https://wa.me/0769747803" target="_blank" class="bg-green-700 text-white px-4 py-1 rounded hover:bg-green-800">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Others -->
+    <div id="others" class="tab-content hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="bg-white p-4 rounded shadow">
+        <img src="img/images.jpeg" alt="Accessory" class="w-full rounded" />
+        <h2 class="text-lg font-semibold mt-2">Makeup Pouch</h2>
+        <p class="text-gray-600">Stylish pouch for daily accessories.</p>
+        <div class="flex space-x-2 mt-4">
+          <a href="tel:+254 769747803" class="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600">Call</a>
+          <a href="https://wa.me/0769747803" target="_blank" class="bg-green-700 text-white px-4 py-1 rounded hover:bg-green-800">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="mt-20 px-4 text-center max-w-3xl mx-auto mb-16">
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">Contact Us</h2>
+    <p class="text-gray-600">Have questions? Call us or chat on WhatsApp anytime!</p>
+    <div class="flex justify-center gap-4 mt-4">
+      <a href="tel:+1234567890" class="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600">Call</a>
+      <a href="https://wa.me/1234567890" target="_blank" class="bg-green-700 text-white px-6 py-2 rounded hover:bg-green-800">WhatsApp</a>
+    </div>
+  </section>
+
+</body>
+</html>
